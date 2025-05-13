@@ -49,15 +49,26 @@
 
 ---
 
-## 🔧 Compilation & Execution
+## 🔧 Compilation & Execution (Visual Studio)
 
-### 🔽 Dependencies:
-- OpenGL Utility Toolkit (GLUT)
+To run this project using **Visual Studio** on Windows:
 
-### 🧪 Build Instructions:
+### ✅ Setup Instructions:
+- Ensure your Visual Studio project is set to **x86** (32-bit) configuration.
+- Make sure **OpenGL** and **GLUT (FreeGLUT)** libraries are properly linked in:
+  - Project > Properties > Linker > Input > Additional Dependencies
+  - Include: `opengl32.lib`, `glu32.lib`, `freeglut.lib`
+  - Also, include the proper header/lib/dll paths in **VC++ Directories**.
 
-#### On Windows:
+### ⚠️ Build Errors?
+- Try going to **Build > Rebuild Solution** to fix dependency issues.
+- If you get errors related to the `#include <glut.h>` line:
+  - Replace it with:  
+    ```cpp
+    #include <GL/glut.h>
+    ```
+  - This depends on how **GLUT/OpenGL** is installed and set up on your system.
 
-```bash
-g++ BlockBuster.cpp -o BlockBuster -lfreeglut -lopengl32 -lglu32
-BlockBuster.exe
+---
+
+> 💡 This code assumes you are using the exact `.cpp` file provided above (e.g., `finalCode.cpp`).
